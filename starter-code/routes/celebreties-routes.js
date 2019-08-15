@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Star = require('../models/celebrity')
+const Movie = require('../models/movies');
+const Star = require('../models/celebrity');
 
 router.get('/celebrities/new', (req, res, next) => {
     res.render('celebrities/new-celebrity')
@@ -15,10 +16,7 @@ router.post('/celebrities/create', (req, res, next) => {
     .then( newStar => {
 
         console.log("success!", newStar)
-        res.redirect('/celebrities')
-
-
-        
+        res.redirect('/celebrities')    
     })
     .catch( err => console.log("Error while creating a star:", err));
 });

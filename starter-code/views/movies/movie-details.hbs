@@ -1,0 +1,16 @@
+<h2>Details for {{theMovie.title}}</h2>
+<p>{{theMovie.title}} is in {{theMovie.genre}} genre and based on this plot: {{theMovie.plot}}.</p>
+{{!-- <p>{{theMovie.title}} is starring {{theMovie.cast}}</p> --}}
+<p>cast:
+    {{#each theMovie.cast}}
+       <p>{{this.name}}</p> 
+    {{/each}}
+</p>
+<form action="/movies/{{theMovie._id}}/edit" method ='GET'>
+    <button type="submit">Edit Movie</button>
+</form>
+<br>
+<form action="/movies/{{theMovie._id}}/delete" method ="POST">
+   <button>Delete</button>
+</form>
+<a href="/movies">View Movies</a>
